@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import MikePhoto from "../../img/m101.jpg";
+import { Contacts } from "../views/Contacts";
+import { AddContact } from "../views/AddContact";
 
 export const ContactCard = props => {
+	console.log(props);
 	const [state, setState] = useState({
 		//initialize state here
 	});
@@ -23,7 +26,7 @@ export const ContactCard = props => {
 							<i className="fas fa-trash-alt" />
 						</button>
 					</div>
-					<label className="name lead">Mike Anamendolla</label>
+					<label className="name lead">{props.full_name} </label>
 					<br />
 					<i className="fas fa-map-marker-alt text-muted mr-3" />
 					<span className="text-muted">5842 Hillcrest Rd</span>
@@ -55,7 +58,8 @@ export const ContactCard = props => {
  **/
 ContactCard.propTypes = {
 	history: PropTypes.object,
-	onDelete: PropTypes.func
+	onDelete: PropTypes.func,
+	full_name: PropTypes.string
 };
 
 /**
